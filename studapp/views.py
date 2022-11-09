@@ -72,26 +72,3 @@ class StudentsOperations(APIView):
             return JsonResponse("msg: ID NOT FOUND", safe=False)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import os
-# os.environ['R_HOME'] = '/path/to/R'
-# import subprocess
-# import rpy2
-# import rpy2.robjects as robjects
-
-# class rscript(APIView):
-#     def get(self, request, format=None):
-#         # retcode = subprocess.call("/usr/bin/Rscript --vanilla -e 'source(\"/pathto/MyrScript.r\")'", shell=True)
-#         print("")
