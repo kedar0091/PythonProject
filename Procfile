@@ -1,1 +1,1 @@
-web: python website/manage.py runserver 0.0.0.0:$PORT
+web: python https://python-app-kedar.herokuapp.com/manage.py runserver 0.0.0.0:$PORT
