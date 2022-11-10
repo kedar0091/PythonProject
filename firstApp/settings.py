@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,12 +83,20 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "TodoDB",
+    #     "USER": "postgres",
+    #     "PASSWORD": "cdac",
+    #     "HOST": "localhost",
+    #     "PORT": "5432",
+    # }
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "TodoDB",
-        "USER": "postgres",
-        "PASSWORD": "cdac",
-        "HOST": "localhost",
+        "NAME": "d7tjkoq4vlpu87",
+        "USER": "jegecmrdcobslg",
+        "PASSWORD": "7f53bbb3ad5b24216a8c95ba57a5af8f8bcd22db9fa8b0d25ac10be1a222f8c2",
+        "HOST": "ec2-34-225-159-178.compute-1.amazonaws.com",
         "PORT": "5432",
     }
 }
