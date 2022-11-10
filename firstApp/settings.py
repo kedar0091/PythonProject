@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vods+7@smgd2vl2u7s%$n#wp3g8n(88t31)_2gwv185go!^n8&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'python-app-kedar.herokuapp.com']
 
 
 # Application definition
