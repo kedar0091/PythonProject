@@ -10,6 +10,15 @@ from .serializer import StudentSerializer, StudentInfoSerializer
 #############   STUDENT CRUD OPERATION  #################
 
 class StudentsOperations(APIView):
+    #GET ALL STUDENTS
+    def get(self, request, format =None):
+        try:
+            getData = Student.objects.all()
+            serializer = StudentSerializer(getData, many=True)
+            return JsonResponse(serializer.data, safe=False)
+        except Student.DoesNotExist:
+            return JsonResponse("msg: Invalid", safe=False)
+
     #ADD STUDENT
     def post(self, request, format=None):
         try:
@@ -24,27 +33,6 @@ class StudentsOperations(APIView):
         except Exception as e:
             print(e)
             return JsonResponse("msg: Invalid", safe=False)
-
-    #GET ALL STUDENTS
-    def get(self, request, format =None):
-        try:
-            getData = Student.objects.all()
-            serializer = StudentSerializer(getData, many=True)
-            return JsonResponse(serializer.data, safe=False)
-        except Student.DoesNotExist:
-            return JsonResponse("msg: Invalid", safe=False)
-    
-    #GET SINGLE STUDENT FROM ID
-    # def get(self, request, format =None):
-    #     jsonData = JSONParser().parse(request)
-    #     print(jsonData['id'])
-    #     try:
-    #         getData = Student.objects.get(id=jsonData['id'])
-    #         print(getData)
-    #         serializer = StudentSerializer(getData)
-    #         return JsonResponse(serializer.data, safe=False)
-    #     except Student.DoesNotExist:
-    #         return JsonResponse("msg: Invalid", safe=False)
 
     #UPDATE STUDENT FROM ID
     def put(self, request, format = None):
@@ -71,4 +59,17 @@ class StudentsOperations(APIView):
         except Student.DoesNotExist:
             return JsonResponse("msg: ID NOT FOUND", safe=False)
 
+
+class GetStudent(APIView):
+    # GET SINGLE STUDENT FROM ID
+    def get(self, request, format =None):
+        jsonData = JSONParser().parse(request)
+        print(jsonData['id'])
+        try:
+            getData = Student.objects.get(id=jsonData['id'])
+            print(getData)
+            serializer = StudentSerializer(getData)
+            return JsonResponse(serializer.data, safe=False)
+        except Student.DoesNotExist:
+            return JsonResponse("msg: Invalid", safe=False)
 

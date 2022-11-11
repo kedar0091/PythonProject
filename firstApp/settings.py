@@ -27,6 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'python-app-kedar.herokuapp.com']
 
+# ALLOWED_HOSTS = []
+
 
 # Application definition
 
