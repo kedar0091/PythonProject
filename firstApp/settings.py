@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vods+7@smgd2vl2u7s%$n#wp3g8n(88t31)_2gwv185go!^n8&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'python-app-kedar.herokuapp.com']
+# ALLOWED_HOSTS = ['localhost', 'python-app-kedar.herokuapp.com']
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
     'myapp',
     'studapp',
     'rest_framework',
@@ -76,6 +77,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'firstApp.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -85,22 +92,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": "TodoDB",
-    #     "USER": "postgres",
-    #     "PASSWORD": "cdac",
-    #     "HOST": "localhost",
-    #     "PORT": "5432",
-    # }
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "d7tjkoq4vlpu87",
-        "USER": "jegecmrdcobslg",
-        "PASSWORD": "7f53bbb3ad5b24216a8c95ba57a5af8f8bcd22db9fa8b0d25ac10be1a222f8c2",
-        "HOST": "ec2-34-225-159-178.compute-1.amazonaws.com",
+        "NAME": "TodoDB",
+        "USER": "postgres",
+        "PASSWORD": "cdac",
+        "HOST": "localhost",
         "PORT": "5432",
     }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "d7tjkoq4vlpu87",
+    #     "USER": "jegecmrdcobslg",
+    #     "PASSWORD": "7f53bbb3ad5b24216a8c95ba57a5af8f8bcd22db9fa8b0d25ac10be1a222f8c2",
+    #     "HOST": "ec2-34-225-159-178.compute-1.amazonaws.com",
+    #     "PORT": "5432",
+    # }
 }
 
 

@@ -124,6 +124,8 @@ class RegisterEmployeeView(APIView):
     def post(self, request, instance=None):
         try:
             serializer = UserSerializer(data=request.data)
+            print(request.data)
+            print(serializer.is_valid())
             if serializer.is_valid():
                 # if User.objects.filter(email=request.data['email']).exists():
                 #     return JsonResponse("User already exist", safe=False)
@@ -131,7 +133,8 @@ class RegisterEmployeeView(APIView):
                 #     serializer.save(password=make_password(
                 #         request.data['password']))
 
-                user = Employee.objects.get(email=request.data['email'])
+                user = User.objects.get(email=request.data['email'])
+                # print(user.email,"******")
                 token, created = Token.objects.create(user=user)
                 print(token.key)
                 #token, created = Token.objects.get_or_create(user=emp)

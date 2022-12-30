@@ -6,10 +6,14 @@ from rest_framework.parsers import JSONParser
 
 from studapp.models import Student,StudentInfo
 from .serializer import StudentSerializer, StudentInfoSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 #############   STUDENT CRUD OPERATION  #################
 
 class StudentsOperations(APIView):
+    authentication_classes=[TokenAuthentication]
+    permission_classes=[IsAuthenticated]
     #GET ALL STUDENTS
     def get(self, request, format =None):
         try:
@@ -61,6 +65,8 @@ class StudentsOperations(APIView):
 
 
 class GetStudent(APIView):
+    authentication_classes=[TokenAuthentication]
+    permission_classes=[IsAuthenticated]
     # GET SINGLE STUDENT FROM ID
     def get(self, request, format =None):
         jsonData = JSONParser().parse(request)
